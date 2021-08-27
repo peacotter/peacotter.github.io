@@ -11,40 +11,46 @@
 	<meta name="viewport" content="width=device-width">
     </head>
     <body>
-        <div class="text">
-            <div class="textarea">
-                <textarea id="textarea-01" value="1" cols="50" v-model="message"></textarea>
-             </div>
-            <div class="button">
-                <div class="text_icon"></div>
-                <input id="btn-01" type="button" value="ピコートする" onclick="clickBtn5()" />
+       <div class="container">
+            <div class="text line">
+                <div class="textarea">
+                    <textarea id="textarea-01" value="1" cols="50" v-model="message">テスト</textarea>
+                </div>
+                <div class="button">
+                    <div class="text_icon"></div>
+                    <input id="btn-01" class="btn" type="button" value="ピコートする" onclick="clickBtn5()" />
+                </div>
+            </div>
+
+        <div id="target">
+            <div class="timeline">
+                <div class="profile flex">
+                    <div class="icon">
+                        
+                    </div>
+                    <div class="name">
+                        <a class="username">Peacotter</a>
+                        <a class="userid">@peacotter</a>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <p class="linehight"><span id="span3"></span></p>
+                    <a><span class="time" id="text-01"></span></a>
+                </div>
             </div>
         </div>
 
-    <div id="target">
-        <div class="timeline">
-            <div class="profile flex">
-                <div class="icon">
-                    <img src="logo.jpg">
-                </div>
-                <div class="name">
-                    <a class="username">Peacotter</a>
-                    <a class="userid">@peacotter</a>
-                </div>
-            </div>
-            <div class="tweet">
-                <p class="linehight"><span id="span3"></span></p>
-                <a><span class="time" id="text-01"></span></a>
-            </div>
-        </div>
-    </div>
 
-
-        <div class="button">
+    <div class="button line">
             <div class="text_icon"></div>
-			<input id="downloadImageButton" type="button" value="スクショする" onclick="getDisplayImage();" >
-			<a id="getImage" href=""  style="display:none;"  download="image.png">画像保存</a>
-		</div>
+            <div class="result">
+                <button id="preview" class="btn" type="button">プレビュー</button>
+                <button id="outImage" class="btn" type="button">Download</button>
+            </div>
+            <a id="download" href="#"></a>
+         </div>
+         <div id="previewImage"></div>
+    </div>
 
     </body>
 
@@ -81,25 +87,30 @@
       </script>
 
 <script type="text/javascript">
-    function getDisplayImage(){
-        //html2canvas実行
-        html2canvas(document.getElementById("target")).then(function(canvas) {
-            downloadImage(canvas.toDataURL());
-        });
-    }
 
-    function downloadImage (data) {
-        var fname ="testimage.png";
-        var encdata= atob(data.replace(/^.*,/, ''));
-        var outdata = new Uint8Array(encdata.length);
-        for (var i = 0; i < encdata.length; i++) {
-            outdata[i] = encdata.charCodeAt(i);
-        }
-        var blob = new Blob([outdata], ["image/png"]);
-            document.getElementById("getImage").href=data;			//base64そのまま設定
-            document.getElementById("getImage").download=fname;		//ダウンロードファイル名設定
-            document.getElementById("getImage").click(); 			//自動クリック
-    }
+$(function(){
+   /* プレビュー click !!  */
+   $("#preview").on('click', function(){
+      html2canvas(document.querySelector("#target")).then(function(canvas){
+         $("#previewImage").empty();
+         $("#previewImage").append(canvas);
+      });
+   });
+   /* Image コンバート → Download */
+   $("#outImage").on('click', function(){
+      html2canvas(document.querySelector("#target")).then(canvas=>{
+         var imgageData = canvas.toDataURL("image/png");
+         // a id="download" に ダウンロード設定
+         $("#download").attr("download", "peacotter.png")
+         .attr("href", imgageData.replace(/^data:image\/png/, "data:application/octet-stream"));
+         // ダウンロード発火
+         var evt = document.createEvent("MouseEvents");
+         evt.initMouseEvent("click", true, true
+, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+         document.getElementById("download").dispatchEvent(evt);
+      });
+   });
+});
 
 </script>
 
