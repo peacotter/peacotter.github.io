@@ -12,6 +12,7 @@
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+    -webkit-appearance: none;
 }
 .line {
     border-bottom: 1px solid #ccc;
