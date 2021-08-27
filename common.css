@@ -25,4 +25,7 @@
         width: 90%;
         margin: 20px auto;
     }
+    .time {
+        font-size: 12px;
+    }
 }
