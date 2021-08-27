@@ -19,6 +19,17 @@
     padding-bottom: 35px;
     margin-bottom: 35px;
 }
+footer {
+    font-size: 13px;
+    text-align: center;
+}
+footer a {
+    color: #545454;
+    text-align: center;
+}
+footer a i {
+    margin-right: 2px;
+}
 
 @media screen and (max-width:480px) { 
     body {
