@@ -33,17 +33,6 @@ body {
 .button .text_icon {
     flex-grow: 1.0;
 }
-#btn-01 {
-    display: block;
-    background: #00AE9D;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 20px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    -webkit-appearance: none;
-}
 .timeline {
     position: relative;
     flex-direction: row;
@@ -93,14 +82,7 @@ body {
     color: #474747;
     font-size: 15px;
 }
-#downloadImageButton {
-    display: block;
-    background: #00AE9D;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 20px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    -webkit-appearance: none;
+.result {
+    column-gap: 10px;
+    display: flex;
 }
