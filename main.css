@@ -3,10 +3,11 @@
 body {
     width: 417px;
     margin: 20px auto;
+    background: #222;
 }
 .text {
     border-bottom: 1px solid #ccc;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
     margin-bottom: 35px;
 }
 .textarea {
@@ -90,4 +91,14 @@ body {
 .time {
     color: #474747;
     font-size: 15px;
+}
+#downloadImageButton{
+    display: block;
+    background: #00AE9D;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
 }
