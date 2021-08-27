@@ -28,4 +28,10 @@
     .time {
         font-size: 12px;
     }
+    .textarea {
+        padding: 10px;
+    }
+    .textarea textarea {
+        padding: 0px;
+    }
 }
