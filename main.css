@@ -26,6 +26,7 @@ body {
     white-space: pre-wrap;
     overflow:hidden;
     line-height: 20px;
+    font-size: 16px;
 }
 .button {
     margin-top: 10px;
