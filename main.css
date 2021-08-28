@@ -17,6 +17,7 @@ body {
     border-radius: 5px;
 }
 .textarea textarea {
+    font-family: "Segoe UI", Meiryo, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     outline: none;
     resize: none;
     border: none;
