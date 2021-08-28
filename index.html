@@ -40,8 +40,6 @@
                 </div>
             </div>
         </div>
-
-
     <div class="button line">
             <div class="text_icon"></div>
             <div class="result">
@@ -51,15 +49,11 @@
             <a id="download" href="#"></a>
          </div>
          <div id="previewImage"></div>
-    </div>
-	    
+    </div>  
     <footer>
         <a href="https://www.instagram.com/hoshino.jp/" target=”_blank”><i class="fab fa-instagram"></i>hoshino.jp</a>
     </footer>
-
-
     </body>
-
     <script>
         function clickBtn5() {
           const ta3 = document.getElementById("textarea-01").value;
@@ -88,36 +82,30 @@
         textarea.style.height = clientHeight + 'px';
         let scrollHeight = textarea.scrollHeight;
         textarea.style.height = scrollHeight + 'px';
-});
+        });
 
-      </script>
-
-<script type="text/javascript">
-
-$(function(){
-   /* プレビュー click !!  */
-   $("#preview").on('click', function(){
-      html2canvas(document.querySelector("#target")).then(function(canvas){
-         $("#previewImage").empty();
-         $("#previewImage").append(canvas);
-      });
-   });
-   /* Image コンバート → Download */
-   $("#outImage").on('click', function(){
-      html2canvas(document.querySelector("#target")).then(canvas=>{
-         var imgageData = canvas.toDataURL("image/png");
-         // a id="download" に ダウンロード設定
-         $("#download").attr("download", "peacotter.png")
-         .attr("href", imgageData.replace(/^data:image\/png/, "data:application/octet-stream"));
-         // ダウンロード発火
-         var evt = document.createEvent("MouseEvents");
-         evt.initMouseEvent("click", true, true
-, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-         document.getElementById("download").dispatchEvent(evt);
-      });
-   });
-});
-
-</script>
-
+        $(function(){
+        /* プレビュー click !!  */
+        $("#preview").on('click', function(){
+            html2canvas(document.querySelector("#target")).then(function(canvas){
+                $("#previewImage").empty();
+                $("#previewImage").append(canvas);
+            });
+        });
+        /* Image コンバート → Download */
+        $("#outImage").on('click', function(){
+            html2canvas(document.querySelector("#target")).then(canvas=>{
+                var imgageData = canvas.toDataURL("image/png");
+                // a id="download" に ダウンロード設定
+                $("#download").attr("download", "peacotter.png")
+                .attr("href", imgageData.replace(/^data:image\/png/, "data:application/octet-stream"));
+                // ダウンロード発火
+                var evt = document.createEvent("MouseEvents");
+                evt.initMouseEvent("click", true, true
+        , window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                document.getElementById("download").dispatchEvent(evt);
+            });
+        });
+        });
+    </script>
 </html>
